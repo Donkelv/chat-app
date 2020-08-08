@@ -1,10 +1,11 @@
+import 'package:chat/pages/createAccount.dart';
+import 'package:chat/pages/loginScreen.dart';
 import 'package:chat/pages/mainPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
 }
-
 
 const MaterialColor primary = const MaterialColor(
   0xff0E0909,
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         '/': (context) => LoginPage(),
+        '/createAccount': (context) => CreateAccnt(),
+        '/loginScreen': (context) => LoginScreen()
+
       },
     );
   }

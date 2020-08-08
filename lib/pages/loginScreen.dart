@@ -1,46 +1,41 @@
 import 'package:flutter/material.dart';
 
-class CreateAccnt extends StatefulWidget {
+
+class LoginScreen extends StatefulWidget {
   @override
-  _CreateAccntState createState() => _CreateAccntState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _CreateAccntState extends State<CreateAccnt> {
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController email;
   TextEditingController password;
-  TextEditingController username;
   bool visible;
   @override
-  void initState() {
+  @override
+  void initState() { 
     super.initState();
     email = TextEditingController();
     password = TextEditingController();
-    username = TextEditingController();
     visible = false;
   }
-
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    //final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black,) ,onPressed: () => Navigator.pop(context)),
       ),
       backgroundColor: Color(0xFFF6F6F6),
       body: Padding(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
+        padding: EdgeInsets.only(left: 25.0, right: 25.0,),
+         child: Column(
+           mainAxisAlignment: MainAxisAlignment.start,
+           crossAxisAlignment: CrossAxisAlignment.start,
+           children: [
+             Padding(
               padding: EdgeInsets.only(top: 25.0),
               child: Text(
                 "Chat App",
@@ -63,14 +58,13 @@ class _CreateAccntState extends State<CreateAccnt> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 20.0),
+            Padding(padding: EdgeInsets.only(top: 20.0,),
               child: Form(
                 key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
+                  children:[
                     TextFormField(
                       keyboardType: TextInputType.name,
                       cursorColor: Colors.black,
@@ -86,35 +80,10 @@ class _CreateAccntState extends State<CreateAccnt> {
                           color: Colors.black,
                         ),
                         focusColor: Colors.black,
-                        prefixIcon: Icon(Icons.person_outline),
+                        prefixIcon: Icon(Icons.email),
                         //border: InputBorder()
                       ),
-                      controller: username,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: 15.0,
-                      ),
-                      child: TextFormField(
-                        keyboardType: TextInputType.name,
-                        cursorColor: Colors.black,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                        ),
-                        decoration: InputDecoration(
-                          alignLabelWithHint: true,
-                          hintText: "Email Address",
-                          hintStyle: TextStyle(
-                            fontSize: 11.0,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                          ),
-                          focusColor: Colors.black,
-                          prefixIcon: Icon(Icons.email),
-                          //border: InputBorder()
-                        ),
-                        controller: email,
-                      ),
+                      controller: email,
                     ),
                     Padding(
                       padding: EdgeInsets.only(
@@ -186,25 +155,25 @@ class _CreateAccntState extends State<CreateAccnt> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Already have account?", style: TextStyle(color: Colors.black45, fontSize: 14.0, fontWeight: FontWeight.w500,),),
+                          Text("Don't have an account?", style: TextStyle(color: Colors.black45, fontSize: 14.0, fontWeight: FontWeight.w500,),),
                           Ink(
                             child: InkWell(
-                              child: Text(" Log In", style: TextStyle(color: Color(0xFFE5352A), fontSize: 14.0, fontWeight: FontWeight.w500,),),
+                              child: Text(" Create Account", style: TextStyle(color: Color(0xFFE5352A), fontSize: 14.0, fontWeight: FontWeight.w500,),),
                               onTap: (){
-                                Navigator.pushNamed(context, '/loginScreen');
+                                Navigator.pushNamed(context, '/createAccount');
                               },
                             ),
                           )
                         ],
                       ),
                     ),
-                  ],
+                  ]
                 ),
               ),
             ),
-          ],
+           ],
+         ),
         ),
-      ),
     );
   }
 }
